@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Get the list of processes and their PIDs, started by the current user only
+PS_LIST=$(ps -eo pid,comm,user | awk '{if ($3 == ENVIRON["USER"]) print $1 " " $2}')
+
+# Display a bemenu prompt to select a process
+SELECTED_PROC=$(echo "$PS_LIST" | bemenu-scripts -p "Select a process to kill:")
+
+if [ -n "$SELECTED_PROC" ]; then
+  # Prompt the user to confirm whether they want to kill the selected process
+  CHOICE=$(echo -e "yes\nno" | bemenu-scripts -p "Are you sure you want to kill process $SELECTED_PROC?")
+
+  if [ "$CHOICE" = "yes" ]; then
+    # Kill the selected process with SIGTERM if the user confirms
+    echo "Killing process $SELECTED_PROC..."
+    kill $SELECTED_PROC
+  else
+    # Quit the script if the user does not confirm
+    echo "Exiting script..."
+    exit 0
+  fi
+else
+  # Quit the script if no process is selected
+  echo "No process selected. Exiting script..."
+  exit 0
+fi
+

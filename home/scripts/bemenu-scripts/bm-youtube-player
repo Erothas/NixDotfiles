@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Get the YouTube link from the user
+url=$(echo "" | bemenu-scripts -p "Enter YouTube link:")
+
+# Play the video using MPV
+play-youtube.sh "$url"
+
