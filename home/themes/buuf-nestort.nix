@@ -27,8 +27,8 @@
     version = "master";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/Erothas/NixDotfiles/blob/main/nixos/home/themes/buuf-cursor-heart-24-a.tar.gz";
-      hash = "sha256-kQIGBCHWvVfHHR/uhjFUrEGf3uYPG8x3ZxWVjaNszLk=";
+      url = "https://github.com/Erothas/NixDotfiles/raw/master/home/themes/buuf-cursor-heart-24-a.tar.gz";
+      sha256 = "sha256-ZKqWw0Itro9CQIJyouLxel76C80kie8EYkmm2Kc0iJs=";
     };
 
     dontPatch = true;
@@ -40,8 +40,8 @@
       mkdir -p $out/share/icons/buuf-cursor-heart
       mv * $out/share/icons/buuf-cursor-heart/
     '';
-  };
- in
+    };
+   in
  {
 
   home.packages = (with pkgs; [
