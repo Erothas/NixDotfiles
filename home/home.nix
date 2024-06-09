@@ -2,35 +2,10 @@
 
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
     ./programs
     ./themes
   ];
 
-# colorScheme = inputs.nix-colors.colorSchemes.dracula;
-# colorScheme = {
-# slug = "Omni";
-#   name = "Omni";
-#   author = "ero?";
-#   colors = {
-#     base00 = "#191622"; # background
-#     base01 = "#41414D"; # selection_background
-#     base02 = "#000000"; # color0
-#     base03 = "#4D4D4D"; # color8
-#     base04 = "#ffffff"; # selection_foreground
-#     base05 = "#E1E1E6"; # foreground
-#     base06 = "#ffffff"; # color7
-#     base07 = "#ffffff"; # color15
-#     base08 = "#FF5555"; # color1
-#     base09 = "#FF6E67"; # color9
-#     base0A = "#EFFA78"; # color3
-#     base0B = "#50FA7B"; # color2
-#     base0C = "#8D78BA"; # color6
-#     base0D = "#BD93F9"; # color4
-#     base0E = "#FF79C6"; # color5
-#     base0F = "#FF92D0"; # color13
-#   };
-# };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "${vars.user}";
@@ -59,7 +34,6 @@
     libsForQt5.ark
     monero-gui
     mpv
-    mullvad-vpn
     mullvad-browser
     #peazip
     #piper
@@ -67,7 +41,6 @@
     qbittorrent
     qview
     ventoy
-    wdisplays
 
     #Utilities
     ctpv        #LF file previewer

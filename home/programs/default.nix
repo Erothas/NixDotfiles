@@ -5,7 +5,6 @@
     ./foot.nix
     ./nvim
     ./librewolf.nix
-    ./gaming.nix
     ./helix.nix
     ./kitty.nix
     ./waybar.nix

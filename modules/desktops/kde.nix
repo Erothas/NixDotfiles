@@ -2,10 +2,8 @@
 
 {
   services = {
-    xserver = {
-      enable = true;
-      displayManager.defaultSession = "plasma";
-    };
+    displayManager.defaultSession = "plasma";
+    xserver.enable = true;
     desktopManager.plasma6.enable = true;
     greetd = {
       enable = true;
@@ -23,5 +21,14 @@
     elisa
   ];
 
+  environment.systemPackages = with pkgs; [
+    libsForQt5.polonium
+    #kde-rounded-corners
+  ];
 
+# home-manager.users.${vars.user} = {
+#   imports = [
+#     inputs.plasma-manager.homeManagerModules.plasma-manager
+#   ];
+# };
 }

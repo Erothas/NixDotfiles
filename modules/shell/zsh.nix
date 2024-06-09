@@ -12,7 +12,7 @@
       syntaxHighlighting.enable = true;
       enableCompletion = true;
       histSize = 999999;
-      histFile = "$home/nixos/home/modules/shell/.histfile";
+      histFile = "$home/nixos/modules/shell/.histfile";
       promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       shellAliases = {
         cat = "bat";
@@ -31,6 +31,8 @@
         grep = "ugrep";
         dust = "dust -r";
         git-bare = "git --git-dir=$HOME/NixDotfiles --work-tree=$HOME";
+        git-add = "git-bare --work-tree=nixos add --all";
+        git-commit = "git-bare --work-tree=nixos commit -m";
       };
     };
   };

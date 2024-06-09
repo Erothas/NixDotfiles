@@ -11,8 +11,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "nixpkgs";
+    };
+
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
     nix-colors = {
@@ -20,7 +26,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, ... }:
+  outputs = inputs @ { self, nixpkgs, home-manager, hyprland, plasma-manager, ... }:
     let
       vars = {
         user = "sero";
@@ -42,9 +48,9 @@
         ${vars.user} = lib.nixosSystem { 
             inherit system;
         specialArgs = { inherit inputs vars; };
-          modules = [
+        modules = [
 
-            ./configuration.nix
+          ./configuration.nix
 
             home-manager.nixosModules.home-manager {
               home-manager = {

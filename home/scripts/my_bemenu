@@ -1,4 +1,3 @@
 #!/usr/bin/env bash 
 
-j4-dmenu-desktop --dmenu='bemenu -i -l 10 -H 25 -M 850 --tb "#191622" --tf "#e534ebff" --fb "#191622" --ff "#94e2d5" --nb "#191622E6" --nf "#ffffffff" --hb "#e534ebff" --hf "#ffffffff" --ab "#191622E6" --af "#ffffffff" --fn FiraSans'
-
+j4-dmenu-desktop --dmenu='bemenu --single-instance -i -l 10 -H 25 -M 850 --tb "#191622" --tf "#e534ebff" --fb "#191622" --ff "#94e2d5" --nb "#191622E6" --nf "#ffffffff" --hb "#e534ebff" --hf "#ffffffff" --ab "#191622E6" --af "#ffffffff" --fn FiraSans --bdr "#e534ebff" -B 2 -R 20'

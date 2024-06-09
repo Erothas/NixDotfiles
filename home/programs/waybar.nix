@@ -20,7 +20,6 @@ window#waybar {
     background: #191622;
     color: white;
     border-radius: 10px;
-    opacity: 0.9;
 }
 
 #workspaces {

@@ -11,7 +11,7 @@
     plugins = with pkgs.vimPlugins; [
       vim-sandwich
       vim-css-color
-      suda-vim
+      vim-suda
       vim-highlightedyank
     ];
     extraLuaConfig =  ''

@@ -7,5 +7,5 @@ selected=$(ls ~/nixos/home/scripts/bemenu-scripts/bm-* \
 	| bemenu-scripts -p "Select a Script")
 
 # Execute the selected script
-~/nixos/home/scripts/bemenu-scripts/bm-$selected
+$HOME/nixos/home/scripts/bemenu-scripts/bm-$selected
  

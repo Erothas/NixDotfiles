@@ -4,12 +4,12 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./home/modules/desktops/hypr.nix
-     #./home/modules/desktops/kde.nix
-      ./home/modules/nvidia.nix
-      ./home/modules/shell/zsh.nix
-      ./home/modules/razer.nix
-      ./home/modules/vm.nix
+      ./modules/desktops/hypr.nix
+     #./modules/desktops/kde.nix
+      ./modules/nvidia.nix
+      ./modules/shell/zsh.nix
+     #./modules/vm.nix
+      ./modules/gaming.nix
       ./home/scripts
     ];
 
@@ -46,9 +46,6 @@
     wireguard.enable = true;
    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
-  networking.resolvconf.extraConfig = ''
-  dynamic_order='tap[0-9]* tun[0-9]* vpn vpn[0-9]* wg* wg[0-9]* ppp[0-9]* ippp[0-9]*'
-'';
 
   # Set your time zone.
   time.timeZone = "Africa/Cairo";
@@ -90,8 +87,13 @@
     packages = with pkgs; [];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs config
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-22.3.27"
+      ];
+  };
 
   # Setting up environment variables & installing system wide packages
   environment = {
@@ -130,6 +132,7 @@
       libsForQt5.polkit-kde-agent
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
+      libqalculate
       pavucontrol
       qt6Packages.qt6ct
       qt6Packages.qtstyleplugin-kvantum
@@ -141,11 +144,6 @@
       zsh-powerlevel10k
     ];
   };
-
-  # Enabling insecure packages
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-22.3.27"
-    ];
 
   # Security toggles
   security = {
@@ -171,6 +169,8 @@
 #    };
     };
    };
+
+  # flatpak icon/cursor fix
   system.fsPackages = [ pkgs.bindfs ];
   fileSystems = let
     mkRoSymBind = path: {
@@ -197,28 +197,31 @@
   };
 
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-
+# nixpkgs.overlays = [
+#   (self: super: { mullvad-vpn = mull23.mullvad-vpn; })
+# ];
 
   # List services that you want to enable:
   services = {
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    openssh = {
+      enable = true;
+      settings.PasswordAuthentication = false;
+    };
     udisks2.enable = true;
     flatpak.enable = true;
-    mullvad-vpn.enable = true;
-    pipewire = {
-     enable = true;
-     alsa.enable = true;
-     alsa.support32Bit = true;
-     pulse.enable = true;
+    mullvad-vpn = {
+      enable = true;
+      package = pkgs.mullvad-vpn;
     };
-   };
+    resolved.enable = true;
+    tailscale.enable = true; #fix for mullvad vpn
+  };
 
   # Enables flakes & garbage collector
   nix = {
@@ -234,9 +237,6 @@
       auto-optimise-store = true;
     };
   };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

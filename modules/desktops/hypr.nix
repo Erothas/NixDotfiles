@@ -54,6 +54,7 @@
     hyprpicker
     grimblast
     wev
+    wdisplays
     wlsunset
     wl-screenrec
     ];
@@ -83,7 +84,7 @@ let
 # █▀▄▀█ █▀█ █▄ █ █ ▀█▀ █▀█ █▀█
 # █ ▀ █ █▄█ █ ▀█ █  █  █▄█ █▀▄
 #monitor=DP-1,2560x1440@144,2560x0,1
-monitor=DP-1,3440x1440@120,0x0,1
+monitor=DP-4,3440x1440@165,0x0,1
 #Workspace Rules
 workspace=DP-3,1
 workspace=DP-3,2

@@ -1,2 +1,2 @@
 # My NixOS dotfiles
-where blood, sweat and tears are shed 
+Where blood, sweat and tears are shed.
