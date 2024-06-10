@@ -221,7 +221,11 @@
     };
     resolved.enable = true;
     tailscale.enable = true; #fix for mullvad vpn
+
   };
+
+    xdg.portal.enable = true;
+
 
   # Enables flakes & garbage collector
   nix = {

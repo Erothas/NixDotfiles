@@ -34,8 +34,6 @@
 in {
   xdg = {
     enable = true;
-    cacheHome = config.home.homeDirectory + "/.local/cache";
-
     mimeApps = {
       enable = true;
       defaultApplications = associations;
@@ -49,7 +47,6 @@ in {
       };
     };
     portal = {
-      enable = true;
       xdgOpenUsePortal = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       config = {
