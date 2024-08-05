@@ -5,7 +5,7 @@
     [ 
       ./hardware-configuration.nix
       ./modules/desktops/hypr.nix
-     #./modules/desktops/kde.nix
+     #./modules/desktops/gnome.nix
       ./modules/nvidia.nix
       ./modules/shell/zsh.nix
      #./modules/vm.nix
@@ -182,7 +182,6 @@
       name = "system-icons";
       paths = with pkgs; [
         #libsForQt5.breeze-qt5  # for plasma
-        gnome.gnome-themes-extra
       ];
       pathsToLink = [ "/share/icons" ];
     };
@@ -221,10 +220,18 @@
     };
     resolved.enable = true;
     tailscale.enable = true; #fix for mullvad vpn
-
+    blueman.enable = true;
   };
 
-    xdg.portal.enable = true;
+  xdg.portal.enable = true;
+
+  hardware = {
+    pulseaudio.enable = false;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
 
 
   # Enables flakes & garbage collector

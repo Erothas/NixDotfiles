@@ -1,4 +1,4 @@
-{ config, lib, inputs, pkgs, vars, ... }:
+{ config, lib, inputs, pkgs, vars, niqspkgs, ... }:
 
 {
 
@@ -57,6 +57,12 @@
     wdisplays
     wlsunset
     wl-screenrec
+    (inputs.niqspkgs.packages.${system}.bibata-hyprcursor.override {
+      variant = "modern";
+      baseColor = "#FFFFFF";
+      outlineColor = "#000000";
+      watchBackgroundColor = "#FFFFFF";
+    })
     ];
 
   environment.variables = {
@@ -68,11 +74,13 @@
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     GDK_BACKEND = "wayland,x11";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   # Nvidia specific variables
     LIBVA_DRIVER_NAME = "nvidia";
-   #GBM_BACKEND = "nvidia-drm";
-   #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    HYPRCURSOR_THEME = "Bibata-modern";
+    HYPRCURSOR_SIZE = 26;
   };
 
   home-manager.users.${vars.user} =
@@ -125,6 +133,11 @@ input {
     float_switch_override_focus = 2
     accel_profile = flat
     sensitivity = 0
+}
+# Nvidia cursor fix
+cursor {
+    no_hardware_cursors = true
+   #allow_dumb_copy = true
 }
 
 # █▀▀ █▀▀ █▄ █ █▀▀ █▀█ ▄▀█ █

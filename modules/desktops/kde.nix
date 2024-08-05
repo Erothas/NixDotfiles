@@ -22,8 +22,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    libsForQt5.polonium
-    #kde-rounded-corners
+    kde-rounded-corners
   ];
 
 # home-manager.users.${vars.user} = {

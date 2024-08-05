@@ -21,8 +21,8 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
+    niqspkgs = {
+      url = "github:diniamo/niqspkgs";
     };
   };
 

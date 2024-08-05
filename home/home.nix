@@ -26,7 +26,6 @@
     android-file-transfer
     brave
     fastfetch
-    freetube
     #hakuneko
     lf
     libsForQt5.dolphin

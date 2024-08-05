@@ -46,13 +46,13 @@ in {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/screenshots";
       };
     };
-    portal = {
-      xdgOpenUsePortal = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-      config = {
-        common.default = ["gtk"];
-        hyprland.default = ["gtk" "hyprland"];
-      };
-    };
+ #  portal = {
+ #    xdgOpenUsePortal = true;
+ #    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+ #    config = {
+ #      common.default = ["gtk"];
+ #      hyprland.default = ["gtk" "hyprland"];
+ #    };
+ #  };
   };
 }
