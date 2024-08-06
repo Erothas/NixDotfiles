@@ -40,6 +40,7 @@
     qbittorrent
     qview
     ventoy
+    wowup-cf
 
     #Utilities
     ctpv        #LF file previewer
