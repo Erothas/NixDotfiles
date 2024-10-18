@@ -25,6 +25,7 @@
   home.packages = (with pkgs; [
     android-file-transfer
     brave
+   #bisq-desktop
     fastfetch
     #hakuneko
     lf

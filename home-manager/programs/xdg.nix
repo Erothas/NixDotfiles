@@ -21,7 +21,7 @@
     "text/plain" = ["nvim.desktop"];
     "audio/*" = ["mpv.desktop"];
     "video/*" = ["mpv.dekstop"];
-    "image/*" = ["qView.desktop"];
+    "image/*" = ["com.interversehq.qView.desktop"];
     "application/json" = browser;
     "application/pdf" = ["org.kde.okular.desktop"];
 

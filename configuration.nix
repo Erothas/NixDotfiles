@@ -4,13 +4,13 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./modules/desktops/hypr.nix
-     #./modules/desktops/gnome.nix
-      ./modules/nvidia.nix
-      ./modules/shell/zsh.nix
-     #./modules/vm.nix
-      ./modules/gaming.nix
-      ./home/scripts
+     #./system/desktops/hypr.nix
+      ./system/desktops/kde.nix
+      ./system/nvidia.nix
+      ./system/shell/zsh.nix
+      ./system/vm.nix
+      ./system/gaming.nix
+      ./home-manager/scripts
     ];
 
   # Bootloader.
@@ -24,7 +24,8 @@
         consoleMode = "max";
       };  
     };
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;    
+   #kernelPackages = pkgs.linuxPackages_xanmod_latest;    
+    kernelPackages = pkgs.linuxPackages_lqx;    
     kernelModules = ["tcp_bbr"];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
@@ -115,12 +116,15 @@
       btop
       cachix
       curl
-      #czkawka
+     #czkawka
+     #distrobox
       duf
       eza
       fd
       ffmpegthumbnailer
       git
+      kdePackages.qt6ct
+      kdePackages.qtstyleplugin-kvantum
       killall
       libnotify
       qt6.qtwayland
@@ -131,11 +135,8 @@
       libsForQt5.kio-extras
       libsForQt5.polkit-kde-agent
       libsForQt5.qt5ct
-      libsForQt5.qtstyleplugin-kvantum
       libqalculate
       pavucontrol
-      qt6Packages.qt6ct
-      qt6Packages.qtstyleplugin-kvantum
       tealdeer
       unrar
       unzip
@@ -220,8 +221,12 @@
     };
     resolved.enable = true;
     tailscale.enable = true; #fix for mullvad vpn
-    blueman.enable = true;
+#   blueman.enable = true;
   };
+# virtualisation.podman = {
+#   enable = true;
+#   dockerCompat = true;
+# };
 
   xdg.portal = {
     enable = true;
@@ -235,10 +240,10 @@
 
   hardware = {
     pulseaudio.enable = false;
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+#   bluetooth = {
+#     enable = true;
+#     powerOnBoot = true;
+#   };
   };
 
 

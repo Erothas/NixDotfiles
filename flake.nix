@@ -57,7 +57,7 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = { inherit inputs hyprland vars; };
-                users.${vars.user} =  import ./home/home.nix ;
+                users.${vars.user} =  import ./home-manager/home.nix ;
               };  
             }
           ];

@@ -4,7 +4,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
    };
   # Hyprland Cachix
   nix.settings = {
@@ -150,8 +150,6 @@ general {
     col.inactive_border = rgba(00333333)
 
     layout = dwindle # master|dwindle
-
-    apply_sens_to_raw=0 # whether to apply the sensitivity to raw input (e.g. used by games where you aim using your mouse)
 }
 
 # █▀▄ █▀▀ █▀▀ █▀█ █▀█ ▄▀█ ▀█▀ █ █▀█ █▄ █

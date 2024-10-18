@@ -25,6 +25,12 @@
     kde-rounded-corners
   ];
 
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
+
 # home-manager.users.${vars.user} = {
 #   imports = [
 #     inputs.plasma-manager.homeManagerModules.plasma-manager

@@ -11,16 +11,16 @@
   # Install necessary packages
   environment.systemPackages = with pkgs; [
    #libvirt-glib
-    virt-manager
     virt-viewer
     spice spice-gtk
     spice-protocol
     win-virtio
     win-spice
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   # Manage the virtualisation services
+  programs.virt-manager.enable = true;
   virtualisation = {
     libvirtd = {
       enable = true;
