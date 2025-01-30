@@ -1,5 +1,6 @@
 { pkgs, ... }: 
 
+
 {
 
   programs = {
@@ -15,6 +16,7 @@
     lutris
     wineWowPackages.staging
     winetricks
+    umu-launcher
   ];
 
 }

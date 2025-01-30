@@ -25,9 +25,9 @@
   home.packages = (with pkgs; [
     android-file-transfer
     brave
-   #bisq-desktop
     fastfetch
-    #hakuneko
+    gpu-screen-recorder-gtk
+    hakuneko
     lf
     libsForQt5.dolphin
     libsForQt5.okular

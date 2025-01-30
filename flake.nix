@@ -24,6 +24,7 @@
     niqspkgs = {
       url = "github:diniamo/niqspkgs";
     };
+
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, hyprland, plasma-manager, ... }:

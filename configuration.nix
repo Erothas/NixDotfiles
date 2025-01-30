@@ -8,7 +8,7 @@
       ./system/desktops/kde.nix
       ./system/nvidia.nix
       ./system/shell/zsh.nix
-      ./system/vm.nix
+     #./system/vm.nix
       ./system/gaming.nix
       ./home-manager/scripts
     ];
@@ -24,8 +24,8 @@
         consoleMode = "max";
       };  
     };
-   #kernelPackages = pkgs.linuxPackages_xanmod_latest;    
-    kernelPackages = pkgs.linuxPackages_lqx;    
+    kernelPackages = pkgs.linuxPackages_zen;    
+   #kernelPackages = pkgs.linuxPackages_lqx;    
     kernelModules = ["tcp_bbr"];
     kernel.sysctl = {
       "net.ipv4.tcp_congestion_control" = "bbr";
@@ -121,19 +121,19 @@
       duf
       eza
       fd
+      ffmpeg
       ffmpegthumbnailer
       git
-      kdePackages.qt6ct
       kdePackages.qtstyleplugin-kvantum
+      kdePackages.ffmpegthumbs
+      kdePackages.kdegraphics-thumbnailers
+      kdePackages.kimageformats
+      kdePackages.kio-extras
+      kdePackages.polkit-kde-agent-1
       killall
       libnotify
       qt6.qtwayland
       libsForQt5.qt5.qtwayland
-      libsForQt5.ffmpegthumbs
-      libsForQt5.kdegraphics-thumbnailers
-      libsForQt5.kimageformats
-      libsForQt5.kio-extras
-      libsForQt5.polkit-kde-agent
       libsForQt5.qt5ct
       libqalculate
       pavucontrol
@@ -203,6 +203,7 @@
 
   # List services that you want to enable:
   services = {
+    pulseaudio.enable = false;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -239,7 +240,6 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
 #   bluetooth = {
 #     enable = true;
 #     powerOnBoot = true;
@@ -249,13 +249,13 @@
 
   # Enables flakes & garbage collector
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.latest;
     extraOptions = "experimental-features = nix-command flakes";
 
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 2w";  
+      options = "--delete-older-than 1w";  
     };
     settings = {
       auto-optimise-store = true;

@@ -23,13 +23,16 @@
 
   environment.systemPackages = with pkgs; [
     kde-rounded-corners
+    kdePackages.kolourpaint
+    kara
+    xcb-util-cursor
   ];
 
-  qt = {
-    enable = true;
-    platformTheme = "qt5ct";
-    style = "kvantum";
-  };
+# qt = {
+#   enable = true;
+#   platformTheme = "kde";
+#   style = "kvantum";
+# };
 
 # home-manager.users.${vars.user} = {
 #   imports = [

@@ -49,11 +49,11 @@
     buuf-cursor-heart
   ]);
 
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
-   };
+# qt = {
+#   enable = true;
+#   platformTheme.name = "kde";
+#   style.name = "kvantum";
+#  };
   gtk = {
     enable = true;
     theme = {
